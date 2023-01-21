@@ -995,7 +995,7 @@ unsigned int upload(char *filename, unsigned int address)
 
             for (section = somebfd->sections; section != NULL; section = section->next) {
                 if ((section->flags & SEC_HAS_CONTENTS) && (section->flags & SEC_LOAD)) {
-                    sectsize = bfd_section_size(section);
+                    sectsize = bfd_section_size(somebfd, section);
                     printf("Section %s, ",section->name);
                     printf("lma 0x%x, ", (unsigned int)section->lma);
                     printf("size %d\n",sectsize);
